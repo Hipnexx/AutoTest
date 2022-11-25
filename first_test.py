@@ -14,9 +14,16 @@ class TestCalc:
         
     def test_division_calculate_correctly(self):
         assert self.calc.division(self, 6, 3) == 2
+        
+    def test_zero_division(self):
+        with pytest.raises(ZeroDivisionError):
+            self.calc.division(3, 0)
 
     def test_subtraction_calculate_correctly(self):
         assert self.calc.subtraction(self, 3, 1) == 2
 
     def test_adding_calculate_correctly(self):
         assert self.calc.adding(self, 3, 1) == 4
+        
+    def teardown(self):
+        print('Выполнение Teardown')
